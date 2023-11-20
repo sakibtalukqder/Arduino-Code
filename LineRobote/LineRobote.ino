@@ -3,13 +3,13 @@
 #include <AFMotor.h>
 
 //Ultrasonic sensor
-#define TRIGGER_PIN A2
-#define ECHO_PIN A1
+#define TRIGGER_PIN A3
+#define ECHO_PIN A2
 #define max_distance 50
 
 //ir sensor
-#define irLeft A3
-#define irRight A4
+#define irLeft A0
+#define irRight A1
 
 //motor
 #define MAX_SPEED 200
@@ -35,7 +35,7 @@ void setup() {
   pinMode(irLeft, INPUT);
   pinMode(irRight, INPUT);
   servo.attach(10);
-  servo.write(90);
+  servo.write(65);
 
   motor1.setSpeed(120);
   motor2.setSpeed(120);
@@ -103,7 +103,7 @@ int getDistance() {
 
 int lookLeft() {
   //lock left
-  servo.write(150);
+  servo.write(170);
   delay(500);
   leftDistance = getDistance();
   delay(100);
@@ -116,7 +116,7 @@ int lookLeft() {
 
 int lookRight() {
   //lock right
-  servo.write(30);
+  servo.write(0);
   delay(500);
   rightDistance = getDistance();
   delay(100);
